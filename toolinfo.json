@@ -1,0 +1,23 @@
+{
+  "name": "dinopano",
+  "title": "dinopano",
+  "description": "A slim, stable 360° panorama viewer for Wikimedia Commons, running entirely in the browser.",
+  "url": "https://dinopano.toolforge.org/",
+  "keywords": "panorama, 360, equirectangular, commons, viewer",
+  "author": [
+    {
+      "name": "Simon Legner",
+      "url": "https://meta.wikimedia.org/wiki/User:Simon04"
+    }
+  ],
+  "repository": "https://github.com/simon04/dinopano",
+  "license": "GPL-3.0-only",
+  "technology_used": ["javascript", "typescript"],
+  "tool_type": "web app",
+  "for_wikis": ["commonswiki"],
+  "toolinfo_language": "en",
+  "user_docs_url": [
+    { "language": "en", "url": "https://github.com/simon04/dinopano#readme" }
+  ],
+  "bugtracker_url": "https://github.com/simon04/dinopano/issues"
+}
