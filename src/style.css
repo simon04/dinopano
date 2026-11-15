@@ -1,0 +1,145 @@
+@import "@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui.css";
+@import "@wikimedia/codex-design-tokens/dist/theme-wikimedia-ui-mode-dark.css"
+  (prefers-color-scheme: dark);
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--background-color-base);
+  color: var(--color-base);
+  font-family: var(--font-family-system-sans);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-medium);
+}
+
+a {
+  color: var(--color-progressive);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+#viewer {
+  position: fixed;
+  inset: 0;
+}
+
+/* overlays on top of the panorama: always dark, like the PSV navbar */
+.overlay {
+  position: fixed;
+  z-index: 100;
+  max-width: calc(100% - 32px);
+  padding: 6px 10px;
+  border-radius: var(--border-radius-base);
+  background: rgb(0 0 0 / 55%);
+  color: #fff;
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  overflow-wrap: anywhere;
+}
+
+.overlay a {
+  color: #fff;
+}
+
+#attribution {
+  top: 8px;
+  left: 8px;
+}
+
+#status {
+  top: 8px;
+  right: 8px;
+}
+
+#attribution + #status {
+  max-width: 40%;
+}
+
+#message,
+#help {
+  box-sizing: border-box;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+#message {
+  margin-top: 15vh;
+  text-align: center;
+}
+
+#message p:first-child {
+  font-size: var(--font-size-large);
+}
+
+#help h1 {
+  margin: 0 0 0.25rem;
+  font-size: var(--font-size-xx-large);
+}
+
+#help h1 + p {
+  margin-top: 0;
+  color: var(--color-subtle);
+}
+
+#open {
+  display: flex;
+  gap: 8px;
+  margin: 1.5rem 0;
+}
+
+#open input {
+  flex: 1;
+  min-width: 0;
+  min-height: 32px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  border: 1px solid var(--border-color-interactive);
+  border-radius: var(--border-radius-base);
+  background: var(--background-color-base);
+  color: var(--color-base);
+  font: inherit;
+}
+
+#open input:focus {
+  border-color: var(--border-color-progressive--focus);
+  outline: 1px solid var(--outline-color-progressive--focus);
+}
+
+#open button {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid var(--border-color-progressive);
+  border-radius: var(--border-radius-base);
+  background: var(--background-color-progressive);
+  color: var(--color-inverted-fixed);
+  font: inherit;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+}
+
+#open button:hover {
+  background: var(--background-color-progressive--hover);
+}
+
+code {
+  padding: 1px 4px;
+  border-radius: var(--border-radius-base);
+  background: var(--background-color-neutral-subtle);
+  font-family: var(--font-family-monospace);
+  font-size: var(--font-size-small);
+  overflow-wrap: anywhere;
+}
+
+footer {
+  margin-top: 2rem;
+  color: var(--color-subtle);
+  font-size: var(--font-size-small);
+}
+
+.psv-caption-content a {
+  color: inherit;
+}

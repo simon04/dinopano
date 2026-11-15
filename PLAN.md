@@ -4,6 +4,8 @@
 
 **URL:** `https://dinopano.toolforge.org/#File_name.jpg`. This is the same hash format as Panoviewer, so existing links only need the host swapped.
 
+> **Implementation note (v0.1):** following the setup of [DinoData](https://github.com/simon04/dinodata), dinopano is built with Vite+ and pnpm and deployed with the Toolforge build service (`toolforge.yaml`, `Procfile`, `server.js`) instead of `public_html` with an import map. Photo Sphere Viewer and three.js are npm dependencies bundled into the tool, so they are still served from Toolforge, not a CDN. License is GPL-3.0. See the [README](README.md) for development and deployment. Thumbnails turned out to be served only in standard widths (up to 3840 px), see §4.3.
+
 ---
 
 ## 1. Why a new tool
@@ -79,6 +81,7 @@ dinopano/
    - `maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE)`, from a throwaway WebGL context.
    - `W = min(originalWidth, maxTex, mobileCap)`, where `mobileCap` is about 8192 on touch devices to save memory.
    - If `W == originalWidth`, use the original `url`. Otherwise use the `thumburl` the API returns. Let the API decide which thumbnail widths are valid; don't hard-code them.
+   - In practice Commons serves only standard thumbnail widths (largest 3840 px; others return HTTP 400), and `thumbwidth` reports the requested width, not the served one. So originals up to `W` are loaded after the 3840-px thumbnail (progressive loading, §9), larger ones get the thumbnail only.
 4. **Projection**
    - 2:1 aspect ratio → full equirectangular sphere.
    - Not 2:1 → treat it as a partial panorama, computing PSV `panoData` from the GPano metadata if available, or else assuming a full 360° horizontal view. Show a small notice.
@@ -152,14 +155,14 @@ dinopano/
 
 ## 10. Effort estimate
 
-| Task | Time |
-|---|---|
-| Vendor libraries, importmap, skeleton | 0.5 h |
-| API query, resolution picking, rendering | 1–2 h |
-| Errors, attribution, help page | 1 h |
-| Toolforge setup and deploy | 0.5 h |
-| Testing (desktop and mobile) | 1 h |
-| **Total for v0.1** | **about half a day** |
+| Task                                     | Time                 |
+| ---------------------------------------- | -------------------- |
+| Vendor libraries, importmap, skeleton    | 0.5 h                |
+| API query, resolution picking, rendering | 1–2 h                |
+| Errors, attribution, help page           | 1 h                  |
+| Toolforge setup and deploy               | 0.5 h                |
+| Testing (desktop and mobile)             | 1 h                  |
+| **Total for v0.1**                       | **about half a day** |
 
 ## References
 

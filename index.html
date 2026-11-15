@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>dinopano</title>
+    <meta
+      name="description"
+      content="A slim, stable 360° panorama viewer for Wikimedia Commons, running entirely in the browser."
+    />
+    <!-- social media: Open Graph and Twitter/X cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="dinopano" />
+    <meta property="og:title" content="dinopano" />
+    <meta
+      property="og:description"
+      content="A slim, stable 360° panorama viewer for Wikimedia Commons, running entirely in the browser."
+    />
+    <meta property="og:url" content="https://dinopano.toolforge.org/" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div id="viewer"></div>
+    <div id="attribution" class="overlay" hidden></div>
+    <div id="status" class="overlay" role="status" hidden></div>
+    <div id="message" role="alert" hidden></div>
+    <main id="help" hidden>
+      <h1>dinopano</h1>
+      <p>360° panorama viewer for Wikimedia Commons</p>
+      <form id="open">
+        <input
+          id="file"
+          type="text"
+          placeholder="File name or Commons URL"
+          aria-label="File name or Commons URL"
+          required
+        />
+        <button type="submit">View</button>
+      </form>
+      <p>
+        Shows 360° photos from
+        <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> in your
+        browser. Link to a panorama with
+        <code>https://dinopano.toolforge.org/#File_name.jpg</code>, for example:
+      </p>
+      <ul>
+        <li>
+          <a href="#Salzburg_Hauptbahnhof_(IMG_20261111_091358_00_141).jpg"
+            >Salzburg Hauptbahnhof</a
+          >
+        </li>
+        <li>
+          <a href="#Fraueninsel_Chiemsee_Panorama.jpg"
+            >Fraueninsel Chiemsee Panorama</a
+          >
+          (aerial)
+        </li>
+        <li>
+          <a href="#Hiouchi,_California_May_2023_(cropped).jpg"
+            >Hiouchi, California</a
+          >
+          (partial panorama)
+        </li>
+      </ul>
+      <p>
+        More panoramas in
+        <a
+          href="https://commons.wikimedia.org/wiki/Category:Spherical_panoramics"
+          >Category:Spherical panoramics</a
+        >.
+      </p>
+      <footer>
+        <a href="https://github.com/simon04/dinopano">Source code</a> (GPL-3.0)
+        · Viewer:
+        <a href="https://photo-sphere-viewer.js.org/">Photo Sphere Viewer</a> ·
+        No tracking, all requests go to Wikimedia<span id="version"></span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
